@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WIN: "
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        />
+    <TextView
+        android:id="@+id/lblWin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="60dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOSE: "
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        />
+    <TextView
+        android:id="@+id/lblLose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginLeft="60dp"
+        android:layout_below="@id/lblWin"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:id="@+id/dispHands"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_toRightOf="@id/lblLose"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="60dp"
+        android:background="@drawable/default_image"
+        />
+
+    <ImageButton
+        android:id="@+id/rockImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/rock"
+        android:contentDescription="Rock"
+        />
+
+    <TextView
+        android:id="@+id/labelRock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rockImage"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="90dp"
+        android:text="ROCK" />
+
+    <ImageButton
+        android:id="@+id/paperImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/paper"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="300dp"
+        android:layout_toRightOf="@id/rockImage"
+        android:contentDescription="Paper"
+        />
+
+    <TextView
+        android:id="@+id/labelPaper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paperImage"
+        android:layout_toRightOf="@id/labelRock"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="50dp"
+        android:text="PAPER" />
+
+    <ImageButton
+        android:id="@+id/scissorsImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/scissors"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/paperImage"
+        android:contentDescription="Scissors"/>
+
+    <TextView
+        android:id="@+id/labelScissors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paperImage"
+        android:layout_toRightOf="@id/labelPaper"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="42dp"
+        android:text="SCISSORS" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:layout_marginTop="500dp"
+        android:layout_centerHorizontal="true"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/historyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Game History"
+        android:layout_below="@id/playButton"
+        android:layout_centerHorizontal="true"/>
+
+
+
+</RelativeLayout>
