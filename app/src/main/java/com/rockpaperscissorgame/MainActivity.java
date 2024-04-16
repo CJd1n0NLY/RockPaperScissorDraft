@@ -1,8 +1,10 @@
 package com.rockpaperscissorgame;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
    private static String selectedHandSign;
     private static final String[] handSigns = {"Rock", "Paper", "Scissors"};
     private ImageView[] pictures;
+    private int wins = 0;
+    private int losses = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +68,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void displayUserSelected(String handSign) {
-        Toast.makeText(this, "Selected Hand Sign: " + handSign, Toast.LENGTH_SHORT).show();
+    private void displayToast(String message, int duration) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).cancel();
+            }
+        }, 500);
     }
+
+
+    private void displayUserSelected(String handSign) {
+        displayToast("Selected Hand Sign: " + handSign, 1000);    }
 
     private void playGame() {
         if (selectedHandSign == null) {
-            Toast.makeText(this, "Please select a hand sign first", Toast.LENGTH_SHORT).show();
+            displayToast("Please select a hand sign first", 1000);
             return;
         }
 
@@ -83,6 +99,24 @@ public class MainActivity extends AppCompatActivity {
         ImageView dispHands = findViewById(R.id.dispHands);
         dispHands.setImageResource(computerImage);
 
+        if (selectedHandSign.equals(computerHandSign)) {
+            displayToast("It's a tie!", 1000);
+        } else if ((selectedHandSign.equals("Rock") && computerHandSign.equals("Scissors")) ||
+                (selectedHandSign.equals("Paper") && computerHandSign.equals("Rock")) ||
+                (selectedHandSign.equals("Scissors") && computerHandSign.equals("Paper"))) {
+            displayToast("User Wins!", 1000);
+            wins++;
+        } else {
+            displayToast("Computer Wins!", 1000);
+            losses++;
+        }
+
+        TextView lblWin = findViewById(R.id.lblWin);
+        lblWin.setText(String.valueOf(wins));
+
+        TextView lblLose = findViewById(R.id.lblLose);
+        lblLose.setText(String.valueOf(losses));
+
         selectedHandSign = null;
 
     }
@@ -91,13 +125,13 @@ public class MainActivity extends AppCompatActivity {
         int image;
         switch (handSign) {
             case "Rock":
-                image = R.drawable.rock;
+                image = R.drawable.rock1;
                 break;
             case "Paper":
-                image = R.drawable.paper;
+                image = R.drawable.paper1;
                 break;
             case "Scissors":
-                image = R.drawable.scissors;
+                image = R.drawable.scissors1;
                 break;
             default:
                 image = R.drawable.default_image;
