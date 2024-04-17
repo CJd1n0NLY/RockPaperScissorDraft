@@ -49,6 +49,9 @@ public class History extends AppCompatActivity {
         });
 
         displayData();
+
+        MainActivity main = new MainActivity();
+
     }
 
     void displayData(){

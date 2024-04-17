@@ -1,5 +1,6 @@
 package com.rockpaperscissorgame;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -9,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "newDatabaseRPS.db";
+    private static final String DATABASE_NAME = "tryDb.db";
     private static final String TABLE_NAME = "rpsHistory";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_MATCHRESULT = "matchResult";
@@ -26,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
     db.execSQL("CREATE TABLE " + TABLE_NAME + "(" + COLUMN_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_PLAYER + " TEXT, "+ COLUMN_COMPUTER + " TEXT, " + COLUMN_MATCHRESULT + " TEXT)");
+            + COLUMN_PLAYER + " TEXT, " + COLUMN_COMPUTER + " TEXT, " + COLUMN_MATCHRESULT + " TEXT)");
 
     }
 
@@ -46,10 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PLAYER, playerChoice);
         values.put(COLUMN_COMPUTER, computerChoice);
         values.put(COLUMN_MATCHRESULT, matchResult);
-
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-//        String dateTime = dateFormat.format(new Date());
-//        values.put(COLUMN_DATETIME, dateTime);
 
        long result = db.insert(TABLE_NAME, null,values);
 

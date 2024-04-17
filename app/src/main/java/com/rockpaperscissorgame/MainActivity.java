@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper dbHelper;
    private static String selectedHandSign;
     private static final String[] handSigns = {"Rock", "Paper", "Scissors"};
-    private ImageView[] pictures;
     private int wins = 0;
     private int losses = 0;
     @Override
@@ -46,13 +45,6 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        pictures = new ImageView[]{
-                rockImage,
-                paperImage,
-                scissorsImage
-
-        };
 
         rockImage.setOnClickListener(v -> {
              userIndex = 0;
