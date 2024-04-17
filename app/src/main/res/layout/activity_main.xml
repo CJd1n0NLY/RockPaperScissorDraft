@@ -8,13 +8,43 @@
     tools:context=".MainActivity"
     android:background="@color/powderBlue"
     >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Rock Paper Scissor"
+        android:textStyle="italic"
+        android:textSize="40sp"
+        />
 
     <TextView
+        android:id="@+id/lblWhoWins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:id="@+id/userVsComputer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:textStyle="italic"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/labelWin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="WIN: "
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="200dp"
         android:textStyle="bold"
         android:textSize="20sp"
         />
@@ -23,19 +53,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/labelWin"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
 
         />
 
     <TextView
+        android:id="@+id/labelLose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LOSE: "
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/labelWin"
         android:textStyle="bold"
         android:textSize="20sp"
 
@@ -45,12 +78,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
-        android:layout_marginLeft="80dp"
+        android:layout_toRightOf="@id/labelLose"
         android:layout_below="@id/lblWin"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textSize="20sp"
 
+        />
+
+    <ImageView
+        android:id="@+id/userHands"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_toRightOf="@id/lblLose"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="10dp"
+        />
+    <ImageView
+        android:id="@+id/computerHands"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_toRightOf="@id/userHands"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="20dp"
         />
 
     <ImageView
@@ -58,7 +108,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_toRightOf="@id/lblLose"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="200dp"
         android:layout_marginLeft="45dp"
         android:background="@drawable/default_image"
         />
@@ -68,7 +118,7 @@
         android:layout_width="84dp"
         android:layout_height="78dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:background="@drawable/rock1"
         android:contentDescription="Rock" />
 
@@ -86,7 +136,7 @@
         android:layout_width="84dp"
         android:layout_height="78dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:layout_toRightOf="@id/rockImage"
         android:background="@drawable/paper1"
         android:contentDescription="Paper" />
@@ -106,7 +156,7 @@
         android:layout_width="84dp"
         android:layout_height="78dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:layout_toRightOf="@id/paperImage"
         android:background="@drawable/scissors1"
         android:contentDescription="Scissors" />
@@ -126,7 +176,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Play"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="580dp"
         android:layout_centerHorizontal="true"
         android:background="@color/black"
         android:textColor="@color/white"
