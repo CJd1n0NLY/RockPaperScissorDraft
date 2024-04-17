@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
 
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -79,10 +80,11 @@ public class MainActivity extends AppCompatActivity {
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                Intent intent = new Intent(MainActivity.this, History.class);
                 startActivity(intent);
             }
         });
+
 
     }
 
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
         final String playerChoice = selectedHandSign;
         final String computerChoice = computerHandSign;
-        final String whoWin = whoWins.getText().toString().trim();
+        final String whoWin = result.trim();
 
 
         try{
@@ -190,5 +192,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return image;
     }
+
+
 
 }

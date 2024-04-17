@@ -2,13 +2,14 @@ package com.rockpaperscissorgame;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "dbRPS.db";
+    private static final String DATABASE_NAME = "newDatabaseRPS.db";
     private static final String TABLE_NAME = "rpsHistory";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_MATCHRESULT = "matchResult";
@@ -25,10 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
     db.execSQL("CREATE TABLE " + TABLE_NAME + "(" + COLUMN_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_COMPUTER + " TEXT, " + COLUMN_MATCHRESULT + " TEXT)");
-
-    SQLiteDatabase database = this.getWritableDatabase();
-
+            + COLUMN_PLAYER + " TEXT, "+ COLUMN_COMPUTER + " TEXT, " + COLUMN_MATCHRESULT + " TEXT)");
 
     }
 
@@ -60,6 +58,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        } else {
            return true;
        }
+    }
+
+    Cursor readAllData(){
+        String query = "SELECT * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;
     }
 
 }
