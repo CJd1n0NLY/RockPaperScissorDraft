@@ -158,14 +158,18 @@ public class MainActivity extends AppCompatActivity {
         String userVbot = "Player : " + selectedHandSign + " VS " + "Bot : " + computerHandSign;
         userVsComputer.setText(userVbot);
 
+        final String playerChoice = selectedHandSign;
+        final String computerChoice = computerHandSign;
+        final String whoWin = whoWins.getText().toString().trim();
+
+
         try{
-            dbHelper.addToHistory(selectedHandSign, computerHandSign, whoWins.getText().toString().trim(), "04-17-2024");
+            dbHelper.addToHistory(playerChoice, computerChoice, whoWin);
         } catch (Exception e){
             Toast.makeText(MainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
         selectedHandSign = null;
-
 
     }
 
